@@ -25,6 +25,10 @@ resource "docker_container" "jenkins" {
     host_path      = "/var/run/docker.sock"
     container_path = "/var/run/docker.sock"
   }
+    volumes {
+    host_path      = "/usr/bin/docker"
+    container_path = "/usr/bin/docker"
+  }
   network_mode = "bridge"
   networks_advanced {
   name = docker_network.jenkins.name
